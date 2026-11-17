@@ -1,0 +1,34 @@
+# ============================================================================
+# ML Scalping Engine - Python dependencies
+# Install with:  pip install -r requirements.txt
+# ============================================================================
+
+# --- Exchange connectivity & market data ------------------------------------
+ccxt>=4.3.0                # Binance unified API, async-capable, public endpoints
+aiohttp>=3.9.0             # async HTTP (used by ccxt and future news fetchers)
+websockets>=12.0           # low-level WS streaming for later real-time stages
+
+# --- Data manipulation & indicators ------------------------------------------
+numpy>=1.26.0,<2.0.0       # pinned <2.0: pandas-ta 0.3.14b0 relies on np.NaN
+pandas>=2.1.0              # DataFrames for OHLCV / feature matrices
+pandas-ta==0.3.14b0        # 130+ technical indicators for feature engineering
+
+# --- Machine learning ---------------------------------------------------------
+scikit-learn>=1.4.0        # Random Forest, pipelines, metrics, calibration
+xgboost>=2.0.3             # gradient-boosted trees (primary candidate model)
+lightgbm>=4.3.0            # fast alternative booster for comparison
+optuna>=3.5.0              # hyper-parameter search for the ML stage
+joblib>=1.3.0              # model persistence / loading
+
+# --- News & sentiment ingestion (upcoming task) -------------------------------
+requests>=2.31.0           # CryptoPanic REST API client
+feedparser>=6.0.11         # RSS news ingestion fallback
+
+# --- Utilities -----------------------------------------------------------------
+python-dateutil>=2.9.0     # robust date parsing
+pytz>=2024.1               # timezone handling (all timestamps stored UTC)
+python-dotenv>=1.0.1       # optional .env config for future API keys
+tenacity>=8.2.3            # declarative retry policies for network calls
+
+# --- Analysis / visualisation (backtests, feature checks) ----------------------
+matplotlib>=3.8.0
